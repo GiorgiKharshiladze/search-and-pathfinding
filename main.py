@@ -26,31 +26,48 @@ def read_maze(file_name):
 
 	return mylist
 
-def clean_maze(mylist):
+def directions(mylist, i, j):
 	
-	mylist.remove(mylist[0])
-	mylist = mylist[:-1]
+	my_dirs = []
+
+	if mylist[i][j] != "%":
+		# check north
+		if mylist[i-1][j] != "%":
+			my_dirs.append((i-1, j))
+		# check east
+		if mylist[i][j+1] != "%":
+			my_dirs.append((i, j+1))
+		if mylist[i+1][j] != "%":
+			my_dirs.append((i+1, j))
+		if mylist[i][j-1] != "%":
+			my_dirs.append((i, j-1))
+
+	return my_dirs
+
+def create_graph(mylist):
+
+	my_graph = {}
 
 	for i in range(0, len(mylist)):
-		del(mylist[i][0])
-		del(mylist[i][-1])
 
-	return mylist
+		for j in range(0, len(mylist[i])):
+			if directions(mylist, i, j) != []:
+				my_graph[(i, j)] = directions(mylist, i, j)
 
-# def directions(mylist, i, j):
-# 	# check north
-# 	if mylist[i][j-1]
-# 		print(mylist[i][j-1])
-	
+	return my_graph
 
 # MAIN
 if __name__ == '__main__':
 	
-	# listoflists = read_maze("text.txt")
-	listoflists = read_maze("lab-a/multiprize-tiny.txt")
-
-	listoflists = clean_maze(listoflists)
+	listoflists = read_maze("text.txt")
+	# listoflists = read_maze("lab-a/multiprize-tiny.txt")
 
 	for lst in listoflists:
 		print(lst)
+
+	graph = create_graph(listoflists)
+
+	for key, value in graph.items():
+		print(key,":", value)
+
 

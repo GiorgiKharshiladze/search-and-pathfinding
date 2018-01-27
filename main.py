@@ -25,12 +25,31 @@ def read_maze(file_name):
 		mylist.append(each_list)
 
 	return mylist
+
+def clean_maze(mylist):
+	
+	mylist.remove(mylist[0])
+	mylist = mylist[:-1]
+
+	for i in range(0, len(mylist)):
+		del(mylist[i][0])
+		del(mylist[i][-1])
+
+	return mylist
+
+# def directions(mylist, i, j):
+# 	# check north
+# 	if mylist[i][j-1]
+# 		print(mylist[i][j-1])
 	
 
 # MAIN
 if __name__ == '__main__':
 	
-	listoflists = read_maze("text.txt")
+	# listoflists = read_maze("text.txt")
+	listoflists = read_maze("lab-a/multiprize-tiny.txt")
+
+	listoflists = clean_maze(listoflists)
 
 	for lst in listoflists:
 		print(lst)

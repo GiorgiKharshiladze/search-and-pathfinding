@@ -1,16 +1,17 @@
+# Remove '\n' at the end of the line
 def rm_next_line(my_str):
 	if(my_str.endswith('\n')):
 		my_str = my_str[:-1]
 	return my_str
 
+# Converts maze into a list of lists
+def read_maze(file_name):
 
-def main():
-
-	file_open = open("text.txt", "r")
+	file_name = open(file_name, "r")
 
 	mylist = []
 
-	file = file_open.readlines()
+	file = file_name.readlines()
 
 	for i in range(0,len(file)):
 		each_list = []
@@ -24,10 +25,13 @@ def main():
 		mylist.append(each_list)
 
 	return mylist
+	
 
 # MAIN
+if __name__ == '__main__':
+	
+	listoflists = read_maze("text.txt")
 
-listoflists = main()
+	for lst in listoflists:
+		print(lst)
 
-for lst in listoflists:
-	print(lst)

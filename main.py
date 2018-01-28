@@ -1,18 +1,23 @@
 from maze import read_maze, create_graph
 from search import *
 
+filename = "text.txt"
+# filename = "lab-a/1prize-open.txt"
+# filename = "lab-a/multiprize-tiny.txt"
 
 # MAIN
+
+def server_data():
+	listoflists = read_maze(filename)
+	return listoflists
+
 if __name__ == '__main__':
 	
-	listoflists = read_maze("text.txt")
-	# listoflists = read_maze("lab-a/multiprize-tiny.txt")
-	# listoflists = read_maze("lab-a/1prize-open.txt")
+	listoflists = read_maze(filename)
 
 	for lst in listoflists:
 		print(lst)
 
-	print()
 	print()
 
 	# graph = create_graph()

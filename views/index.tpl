@@ -6,11 +6,7 @@
 
 <style>
 .holder {
-	border: 1px #000 dashed;
-}
-.maze {
-	text-align: center;
-	/*width:30%;*/
+	/*border: 1px #000 dashed;*/
 }
 .my-col {
 	float:left;
@@ -18,7 +14,9 @@
 </style>
 </head>
 <body>
+
 	<center>
+		<button id="start" class="btn btn-success">Start</button><br><br>
 	<div class="holder">
 	  <div id="maze" class="maze"></div>
 	</div>
@@ -28,9 +26,14 @@
 <script src="static/jquery.min.js"></script>
 <script src="static/tether.min.js"></script>
 <script src="static/bootstrap.min.js"></script>
+<script src="static/jquery.color.min.js"></script>
 <script>
 
-	var map = {{ !list }};
+	var map = {{ !start_list }};
+	var path = {{ !path_list }};
+
+	var mouse = [];
+	var cheese = [];
 
 	for(i = 0; i < map.length; i++)
 	{
@@ -41,28 +44,26 @@
 		for(j = 0; j < map[i].length; j++)
 		{
 
-			$("#row-"+i).append("<div id='col-"+i+"-"+j+"' class='my-col'></div>")
-
-			// make every box same height
-			// $("#col-"+i+"-"+j).css("height",$(".row").width()/map[i].length);
-
+			$("#row-"+i).append("<div id='col-"+i+"-"+j+"' class='my-col'></div>");
 
 			if(map[i][j] == "%"){
 				map[i][j] = "#2c3e50";
 			}
 			else if (map[i][j] == "P"){
 				map[i][j] = "#2980b9";
+				mouse = [i, j];
 			}
 			else if (map[i][j] == "."){
-				map[i][j] = "#f1c40f";
+				map[i][j] = "#e74c3c";
+				cheese = [i, j];
 			}
 			else {
 				map[i][j] = "#ecf0f1"
 			}
 			$("#col-"+i+"-"+j).css("background",map[i][j]);
-
 		}
 	}
+
 
 	var col = map[0].length;
 	var row = map.length;
@@ -85,6 +86,31 @@
 	$(".my-col").css("width", $(".holder").width()/col);
 	$(".my-col").css("height", $(".holder").height()/row);
 	
+
+	// draw mouse
+	var mouse_height = $("#col-0-0").height();
+	var cheese_height = mouse_height;
+	var my_mouse = "<img src='static/img/mouse.png' class='mouse' height='"+mouse_height+"'>";
+	var my_cheese = "<img src='static/img/cheese.png' height='"+cheese_height+"'>";
+
+	$("#col-"+mouse[0]+"-"+mouse[1]).append(my_mouse);
+	$("#col-"+cheese[0]+"-"+cheese[1]).append(my_cheese);
+
+	$("#start").click(function(){
+		for(i = 0; i < path.length; i++)
+		{
+			var x = path[i][0],y = path[i][1];
+
+			$("#col-"+x+"-"+y).animate({ 
+				backgroundColor: "#7f8c8d",
+				},i*200, function () {
+				// After Animation 
+			  	$(this).append(my_mouse);
+			});
+		}
+	});
+
+
 </script>
 </body>
 </html>

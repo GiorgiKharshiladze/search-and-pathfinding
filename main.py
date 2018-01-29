@@ -1,4 +1,4 @@
-from maze import read_maze, create_graph
+from maze import *
 from search import *
 
 filename = "text.txt"
@@ -9,15 +9,26 @@ filename = "text.txt"
 # filename = "lab-a/multiprize-small.txt"
 # filename = "lab-a/multiprize-tiny.txt"
 
+listoflists = read_maze(filename)
 # MAIN
 
-def server_data():
-	listoflists = read_maze(filename)
+def web_start_data():
+	global listoflists
+
 	return listoflists
 
+def web_path_data():
+	global listoflists
+
+	start = tuple(start_point(listoflists))
+
+	# only dfs
+	my_path = dfs(listoflists, start)
+ 
+	# Return converted my_path to list of lists
+	return [list(elem) for elem in my_path]
+
 if __name__ == '__main__':
-	
-	listoflists = read_maze(filename)
 
 	for lst in listoflists:
 		print(lst)
@@ -27,14 +38,17 @@ if __name__ == '__main__':
 	# graph = create_graph()
 
 	# for key, value in graph.items():
-	# 	print(key,":", value)
+	# 	print(key, " ", value)
 
-	myPath = dfs(listoflists, (1,1))
+	# Mouse position
+	start = tuple(start_point(listoflists))
+
+	my_path = dfs(listoflists, start)
 
 	for i in range(0, len(listoflists)):
 		for j in range(0, len(listoflists[i])):
-			for z in range(0, len(myPath)):
-				if ((i, j) == myPath[z]):
+			for z in range(0, len(my_path)):
+				if ((i, j) == my_path[z]):
 					listoflists[i][j] = str(z)
 
 		

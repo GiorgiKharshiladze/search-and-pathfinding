@@ -47,6 +47,13 @@ def directions(i, j):
 
 	return my_dirs
 
+def start_point(mylist):
+
+	for i in range(0, len(mylist)):
+		for j in range(0, len(mylist[i])):
+			if(mylist[i][j] == "P"):
+				return [i, j]
+
 def create_graph():
 
 	global mylist

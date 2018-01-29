@@ -8,6 +8,8 @@ def read_maze(file_name):
 
 	global mylist
 
+	mylist = []
+
 	file = file_name.readlines()
 
 	for i in range(0,len(file)):

@@ -1,10 +1,12 @@
-from bottle import route, run, template, request
+from bottle import route, run, template, request, static_file
 from main import *
 
 @route('/')
 def index():
-	mylist = server_data()
-	return template('web/index.tpl', list=mylist)
-	
+	return template('views/index', list=server_data())
 
-run(host='localhost', port=8080, debug=True)
+@route('/static/:path#.+#', name='static')
+def static(path):
+    return static_file(path, root='static')
+	
+run(host='localhost', port=8080, debug=True, reloader=True)

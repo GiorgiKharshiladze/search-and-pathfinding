@@ -2,7 +2,11 @@ from maze import read_maze, create_graph
 from search import *
 
 filename = "text.txt"
+# filename = "lab-a/1prize-large.txt"
+# filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
+# filename = "lab-a/multiprize-medium.txt"
+# filename = "lab-a/multiprize-small.txt"
 # filename = "lab-a/multiprize-tiny.txt"
 
 # MAIN
@@ -25,7 +29,7 @@ if __name__ == '__main__':
 	# for key, value in graph.items():
 	# 	print(key,":", value)
 
-	myPath = dfs((1,1))
+	myPath = dfs(listoflists, (1,1))
 
 	for i in range(0, len(listoflists)):
 		for j in range(0, len(listoflists[i])):
@@ -36,6 +40,4 @@ if __name__ == '__main__':
 		
 	for lst in listoflists:
 		print(lst)
-
-
 

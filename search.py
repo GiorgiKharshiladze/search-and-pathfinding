@@ -1,12 +1,12 @@
-from maze import directions, mylist
+from maze import directions
 
 visited = []
 path = []
 done = False
 
-def _dfs(next_node):
+def _dfs(mylist, next_node):
 
-	global visited, mylist, path, ans, done
+	global visited, path, ans, done
 
 	i = next_node[0]
 	j = next_node[1]
@@ -30,14 +30,14 @@ def _dfs(next_node):
 
 		if next_nbr not in visited:
 
-			_dfs(next_nbr)
+			_dfs(mylist, next_nbr)
 
 
-def dfs(next_node):
+def dfs(mylist, next_node):
 
 	global path
 
-	_dfs(next_node)
+	_dfs(mylist, next_node)
 
 	return path
 

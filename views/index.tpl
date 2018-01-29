@@ -10,6 +10,10 @@
 }
 .my-col {
 	float:left;
+	border: 1px #2c3e50 dashed;
+}
+#hide {
+	display: none;
 }
 </style>
 </head>
@@ -91,23 +95,26 @@
 	var mouse_height = $("#col-0-0").height();
 	var cheese_height = mouse_height;
 	var my_mouse = "<img src='static/img/mouse.png' class='mouse' height='"+mouse_height+"'>";
-	var my_cheese = "<img src='static/img/cheese.png' height='"+cheese_height+"'>";
+	var my_cheese = "<img src='static/img/cheese.png' class='cheese' height='"+cheese_height+"'>";
 
 	$("#col-"+mouse[0]+"-"+mouse[1]).append(my_mouse);
 	$("#col-"+cheese[0]+"-"+cheese[1]).append(my_cheese);
 
 	$("#start").click(function(){
-		for(i = 0; i < path.length; i++)
+		for(i = 1; i < path.length; i++)
 		{
 			var x = path[i][0],y = path[i][1];
 
 			$("#col-"+x+"-"+y).animate({ 
-				backgroundColor: "#7f8c8d",
-				},i*200, function () {
-				// After Animation 
+				backgroundColor: "#ecf0f1",
+				},i*100, function () {
+				// After Animation
+			  	$(".mouse").attr("id", "hide");
 			  	$(this).append(my_mouse);
 			});
 		}
+		$(".cheese").css("background","#e74c3c");
+		$("#col-"+path[0][0]+"-"+path[0][1]).css("background","#2980b9");
 	});
 
 

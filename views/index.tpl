@@ -10,7 +10,7 @@
 }
 .my-col {
 	float:left;
-	border: 1px #2c3e50 dashed;
+	border: 1px dashed rgba(44, 62, 80, 0.3);
 }
 #hide {
 	display: none;
@@ -32,6 +32,7 @@
 <script src="static/bootstrap.min.js"></script>
 <script src="static/jquery.color.min.js"></script>
 <script>
+
 
 	var map = {{ !start_list }};
 	var path = {{ !path_list }};
@@ -100,7 +101,7 @@
 	$("#col-"+mouse[0]+"-"+mouse[1]).append(my_mouse);
 	$("#col-"+cheese[0]+"-"+cheese[1]).append(my_cheese);
 
-	$("#start").click(function(){
+	function run () {
 		for(i = 1; i < path.length; i++)
 		{
 			var x = path[i][0],y = path[i][1];
@@ -115,7 +116,9 @@
 		}
 		$(".cheese").css("background","#e74c3c");
 		$("#col-"+path[0][0]+"-"+path[0][1]).css("background","#2980b9");
-	});
+	}
+
+	$("#start").click(run);
 
 
 </script>

@@ -1,8 +1,8 @@
 from maze import *
 from search import *
 
-filename = "text.txt"
-# filename = "lab-a/1prize-large.txt"
+# filename = "text.txt"
+filename = "lab-a/1prize-large.txt"
 # filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
 # filename = "lab-a/multiprize-medium.txt"

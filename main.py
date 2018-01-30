@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 	print()
 
-	print(single_bfs(listoflists, start_point(listoflists)))
+	# print(single_bfs(listoflists, start_point(listoflists)))
 
 	# graph = create_graph()
 
@@ -48,11 +48,11 @@ if __name__ == '__main__':
 
 	# my_path = dfs(listoflists, start)
 
-	# for i in range(0, len(listoflists)):
-	# 	for j in range(0, len(listoflists[i])):
-	# 		for z in range(0, len(my_path)):
-	# 			if ((i, j) == my_path[z]):
-	# 				listoflists[i][j] = str(z)
+	for i in range(0, len(listoflists)):
+		for j in range(0, len(listoflists[i])):
+			for z in range(0, len(my_path)):
+				if ((i, j) == my_path[z]):
+					listoflists[i][j] = str(z)
 
 		
 	# for lst in listoflists:

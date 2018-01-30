@@ -20,6 +20,8 @@
 <body>
 
 	<center>
+		<h2>DFS_Single</h2>
+		<br>
 		<button id="start" class="btn btn-success">Start</button><br><br>
 	<div class="holder">
 	  <div id="maze" class="maze"></div>

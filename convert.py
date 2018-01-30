@@ -1,11 +1,9 @@
-mylist = []
+from implement import *
 
 # Converts maze into a list of lists
 def read_maze(file_name):
 
 	file_name = open(file_name, "r")
-
-	global mylist
 
 	# Make mylist empty when this function runs
 	mylist = []
@@ -25,16 +23,14 @@ def read_maze(file_name):
 
 	return mylist
 
-def show_graph():
-
-	global mylist
+def show_graph(my_list):
 
 	my_graph = {}
 
-	for i in range(0, len(mylist)):
-		for j in range(0, len(mylist[i])):
-			if directions(i, j) != []:
-				my_graph[(i, j)] = directions(i, j)
+	for i in range(0, len(my_list)):
+		for j in range(0, len(my_list[i])):
+			if directions(my_list, [i, j]) != []:
+				my_graph[[i, j]] = directions(my_list, [i, j])
 
 	return my_graph
 

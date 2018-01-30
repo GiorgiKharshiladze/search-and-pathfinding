@@ -1,5 +1,5 @@
 from convert import *
-from implement import *
+from single_algo import *
 
 
 
@@ -19,4 +19,10 @@ if __name__ == '__main__':
 	for line in my_list:
 		print(line)
 
-	print(start_pos())
+	start_position = start_pos(my_list)
+
+	# print(directions(my_list, start_position))
+
+	# print(dfs(my_list, start_position))
+
+	print(show_graph(my_list))

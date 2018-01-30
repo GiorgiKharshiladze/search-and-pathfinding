@@ -7,6 +7,7 @@ def read_maze(file_name):
 
 	global mylist
 
+	# Make mylist empty when this function runs
 	mylist = []
 
 	file = file_name.readlines()

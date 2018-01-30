@@ -5,8 +5,8 @@ import os
 
 @route('/')
 def index():
-	start_data = web_start_data()
-	path_data = web_path_data()
+	# start_data = web_start_data()
+	# path_data = web_path_data()
 	return template('views/index', start_list=start_data, path_list=path_data)
 
 @route('/static/:path#.+#', name='static')

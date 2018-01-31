@@ -37,6 +37,8 @@
 	var map = {{ !start_list }};
 	var path = {{ !path_list }};
 
+	console.log(path);
+
 	var mouse = [];
 	var cheese = [];
 

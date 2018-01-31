@@ -40,9 +40,17 @@ def show_graph(mylist):
 	return my_graph
 
 # Return the starting position of Mouse
-def start_pos(my_list):
+def find_mouse(my_list):
 
 	for i in range(0, len(my_list)):
 		for j in range(0, len(my_list[i])):
 			if(my_list[i][j] == "P"):
+				return (i, j)
+
+# Return the starting position of Cheese
+def find_cheese(my_list):
+
+	for i in range(0, len(my_list)):
+		for j in range(0, len(my_list[i])):
+			if(my_list[i][j] == "."):
 				return (i, j)

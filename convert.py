@@ -1,5 +1,3 @@
-from implement import *
-
 # Converts maze into a list of lists
 def read_maze(file_name):
 
@@ -22,17 +20,6 @@ def read_maze(file_name):
 		mylist.append(each_list)
 
 	return mylist
-
-def show_graph(my_list):
-
-	my_graph = {}
-
-	for i in range(0, len(my_list)):
-		for j in range(0, len(my_list[i])):
-			if directions(my_list, [i, j]) != []:
-				my_graph[[i, j]] = directions(my_list, [i, j])
-
-	return my_graph
 
 # Remove '\n' at the end of the line
 def rm_next_line(my_str):

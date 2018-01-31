@@ -1,6 +1,6 @@
 from convert import *
 from single_algo import *
-
+from implement import *
 
 
 filename = "lab-a/test.txt"
@@ -25,4 +25,6 @@ if __name__ == '__main__':
 
 	# print(dfs(my_list, start_position))
 
-	print(show_graph(my_list))
+	my_graph = show_graph(my_list)
+
+	print(list(dfs_paths(my_graph, start_position, (2,2))))

@@ -1,9 +1,8 @@
 
 class PathNode:
 
-	def __init__(self, value, position):
+	def __init__(self, position):
 
-		self.value = value
 		self.position = position
 
 		self.directions = list()
@@ -44,34 +43,43 @@ class MazeGraph:
 
 			for from_node, to_node in self.path_nodes.items():
 				if from_node == position_one:
-					to_node.add_path(position_two)
+					to_node.add_direction(position_two)
 				if from_node == position_two:
-					to_node.add_path(position_one)
+					to_node.add_direction(position_one)
 
 			return True
 
 		else:
 			return False
 
+	def show_graph(self):
+
+		for key in sorted(list(self.path_nodes.keys())):
+
+			print(key,":",self.path_nodes[key].directions,self.path_nodes[key].discovery,"/",self.path_nodes[key].finish)
+
+
 	def _dfs(self, path_node):
 
-		global count
+		global time
+
+		path_node = self.path_nodes[path_node.position]
 
 		path_node.state = "discovered"
-		path_node.discovery = count
-		count += 1
+		path_node.discovery = time
+		time += 1
 
-		for next_pos in path_node.directions():
-			if self.path_nodes[path_node].state == "new":
-				self._dfs(self.path_nodes(path_node))
+		for next_pos in path_node.directions:
+			if self.path_nodes[next_pos].state == "new":
+				self._dfs(self.path_nodes[next_pos])
 
 		path_node.state  = "finished"
-		path_node.finish = count
-		count += 1
+		path_node.finish = time
+		time += 1
 
 	def dfs(self, path_node):
-		global count
-		count = 1
+		global time
+		time = 1
 		self._dfs(path_node)		
 
 
@@ -102,19 +110,6 @@ def directions(my_list, node):
 			my_dirs.append((i, j-1))
 
 	return my_dirs
-
-
-def show_graph(mylist):
-
-	my_graph = {}
-
-	for i in range(0, len(mylist)):
-
-		for j in range(0, len(mylist[i])):
-			if directions(mylist, (i, j)) != []:
-				my_graph[(i, j)] = set(directions(mylist, (i, j)))
-
-	return my_graph
 
 # Return the starting position of Mouse
 def find_mouse(my_list):

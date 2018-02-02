@@ -3,8 +3,8 @@ from single_algo import *
 from implement import *
 
 
-# filename = "lab-a/test.txt"
-filename = "lab-a/1prize-large.txt"
+filename = "lab-a/test.txt"
+# filename = "lab-a/1prize-large.txt"
 # filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
 # filename = "lab-a/multiprize-medium.txt"
@@ -41,6 +41,13 @@ if __name__ == '__main__':
 	start_position = find_mouse(my_list)
 	goal_position = find_cheese(my_list)
 
-	my_graph = show_graph(my_list)
+	# my_graph = show_graph(my_list)
 
-	print(list(bfs_paths(my_graph, start_position, goal_position)))
+	my_maze = MazeGraph()
+
+	for i in range(0, len(my_list)):
+		for j in range(0, len(my_list[i])):
+
+			my_maze.add_path_node(PathNode(my_list[i][j], (i,j)))
+
+	print(my_maze.path_nodes[(1,1)].value)

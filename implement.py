@@ -10,6 +10,9 @@ class PathNode:
 		self.finish     = 0
 		self.state      = "new"
 
+		# ONLY FOR BFS
+		self.distance   = 9999
+
 	def add_direction(self, next_position):
 
 		directions_set = set(self.directions)
@@ -77,10 +80,25 @@ class MazeGraph:
 		path_node.finish = time
 		time += 1
 
-	def dfs(self, path_node):
+	def dfs(self, start_node):
 		global time
 		time = 1
-		self._dfs(path_node)		
+		self._dfs(start_node)
+
+	
+	def bfs(self, start_node):
+
+		queue = list()
+		start_node = self.path_nodes[start_node.position]
+
+		start_node.distance = 0
+		start_node.state = "discovered"
+
+		for next_pos in start_node.directions:
+			self.path_nodes[next_pos].distance = start_node.distance + 1
+			queue.append(next_pos)
+
+		while len(queue) != 0
 
 
 # Show all the NESW directions of node

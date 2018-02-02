@@ -3,8 +3,8 @@ from single_algo import *
 from implement import *
 
 
-filename = "lab-a/test.txt"
-# filename = "lab-a/1prize-large.txt"
+# filename = "lab-a/test.txt"
+filename = "lab-a/1prize-large.txt"
 # filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
 # filename = "lab-a/multiprize-medium.txt"

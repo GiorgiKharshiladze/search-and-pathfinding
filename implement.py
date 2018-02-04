@@ -98,7 +98,7 @@ class MazeGraph:
 			self.path_nodes[next_pos].distance = start_node.distance + 1
 			queue.append(next_pos)
 
-		while len(queue) != 0
+		# while len(queue) != 0
 
 
 # Show all the NESW directions of node

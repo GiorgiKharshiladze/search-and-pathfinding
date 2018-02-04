@@ -44,9 +44,9 @@ if __name__ == '__main__':
 	# 	print(key, " ", value)
 
 	# Mouse position
-	# start = tuple(start_point(listoflists))
+	start = tuple(start_point(listoflists))
 
-	# my_path = dfs(listoflists, start)
+	my_path = dfs(listoflists, start)
 
 	for i in range(0, len(listoflists)):
 		for j in range(0, len(listoflists[i])):
@@ -55,6 +55,6 @@ if __name__ == '__main__':
 					listoflists[i][j] = str(z)
 
 		
-	# for lst in listoflists:
-	# 	print(lst)
+	for lst in listoflists:
+		print(lst)
 

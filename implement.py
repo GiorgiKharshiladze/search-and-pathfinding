@@ -26,16 +26,20 @@ def directions(my_list, node):
 
 	return my_dirs
 
+def goal_test(my_list):
 
-def show_graph(mylist):
+	return bool(find_cheese(my_list))
+
+
+def show_graph(my_list):
 
 	my_graph = {}
 
-	for i in range(0, len(mylist)):
+	for i in range(0, len(my_list)):
 
-		for j in range(0, len(mylist[i])):
-			if directions(mylist, (i, j)) != []:
-				my_graph[(i, j)] = set(directions(mylist, (i, j)))
+		for j in range(0, len(my_list[i])):
+			if directions(my_list, (i, j)) != []:
+				my_graph[(i, j)] = set(directions(my_list, (i, j)))
 
 	return my_graph
 

@@ -1,6 +1,6 @@
 from convert import *
-from single_algo import *
 from implement import *
+from dfs_search import dfs
 
 
 filename = "lab-a/test.txt"

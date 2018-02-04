@@ -112,7 +112,7 @@
 				backgroundColor: "#ecf0f1",
 				},i*100, function () {
 				// After Animation
-			  	$(".mouse").attr("id", "hide");
+			  	// $(".mouse").attr("id", "hide");
 			  	$(this).append(my_mouse);
 			});
 		}

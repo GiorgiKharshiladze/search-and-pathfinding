@@ -1,18 +1,20 @@
 from implement import *
-import queue
+from heapq import *
 
-queue = queue.Queue()
+pq = []
 visited = []
 
-def bfs(mylist, start_node):
+def gbfs(mylist, start_node):
 
 	visited.append([start_node, None])
 
-	queue.put(start_node)
+	heappush(pq, get_priority_tuple(mylist, start_node))
 
-	while not queue.empty():
+	print(get_priority_tuple(mylist, start_node))
 
-		parent_node = queue.get()
+	while pq:
+
+		parent_node = heappop(pq)[1]
 
 		i = parent_node[0]
 		j = parent_node[1]
@@ -25,16 +27,23 @@ def bfs(mylist, start_node):
 
 				if mylist[next_node[0]][next_node[1]] == ".":
 
-					return bfs_path(visited)
+					return gbfs_path(visited)
 
 				else:
 
-					queue.put(next_node)
+					heappush(pq, get_priority_tuple(mylist, next_node))
 
 	return False
 
+def get_priority_tuple(mylist, node):
+	
+	my_goal = find_cheese(mylist)
 
-def bfs_path(visited):
+	weight = abs(my_goal[1]-node[1]) + abs(my_goal[0]-node[0])
+
+	return (weight, node)
+
+def gbfs_path(visited):
 
 	path = []
 	last = visited[-1][0]

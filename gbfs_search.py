@@ -10,8 +10,6 @@ def gbfs(mylist, start_node):
 
 	heappush(pq, get_priority_tuple(mylist, start_node))
 
-	print(get_priority_tuple(mylist, start_node))
-
 	while pq:
 
 		parent_node = heappop(pq)[1]

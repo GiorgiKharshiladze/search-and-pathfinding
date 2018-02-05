@@ -3,9 +3,10 @@ from implement import *
 from dfs_search import dfs
 from bfs_search import bfs
 from gbfs_search import gbfs
+from astar_search import astar
 
 
-filename = "lab-a/test.txt"
+# filename = "lab-a/test.txt"
 # filename = "lab-a/1prize-large.txt"
 # filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
@@ -26,7 +27,7 @@ def mouse_path():
 
 	start_position = find_mouse(my_list)
 
-	my_path = list(gbfs(my_list, start_position))
+	my_path = list(bfs(my_list, start_position))
 
 	return [list(elem) for elem in my_path]
 
@@ -41,6 +42,6 @@ if __name__ == '__main__':
 
 	my_graph = show_graph(my_list)
 
-	# print(gbfs(my_list, start_position))
+	print(astar(my_list, start_position))
 
-	print(mouse_path())
+	# print(mouse_path())

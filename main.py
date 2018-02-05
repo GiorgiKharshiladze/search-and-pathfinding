@@ -31,7 +31,6 @@ def mouse_path():
 	return [list(elem) for elem in my_path]
 
 
-
 if __name__ == '__main__':
 
 	for line in my_list:

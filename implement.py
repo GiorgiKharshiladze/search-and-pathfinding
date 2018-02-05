@@ -58,3 +58,12 @@ def find_cheese(my_list):
 		for j in range(0, len(my_list[i])):
 			if(my_list[i][j] == "."):
 				return (i, j)
+
+def find_all_cheeses(my_list):
+	cheese_list = []
+	for i in range(0, len(my_list)):
+		for j in range(0, len(my_list[i])):
+			if(my_list[i][j] == "."):
+				cheese_list.append((i, j))
+
+	return cheese_list

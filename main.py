@@ -11,9 +11,9 @@ from multi_astar_search import m_astar
 # filename = "lab-a/1prize-large.txt"
 # filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
-# filename = "lab-a/multiprize-medium.txt"
+filename = "lab-a/multiprize-medium.txt"
 # filename = "lab-a/multiprize-small.txt"
-filename = "lab-a/multiprize-tiny.txt"
+# filename = "lab-a/multiprize-tiny.txt"
 
 
 

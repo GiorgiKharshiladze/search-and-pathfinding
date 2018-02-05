@@ -33,7 +33,7 @@ def astar(mylist, start_node):
 
 				if mylist[next_node[0]][next_node[1]] == ".":
 
-					return astar_path(mylist, visited)
+					return astar_path(mylist, visited), visited
 
 				else:
 					heappush(pq, get_priority_tuple(mylist, next_node))
@@ -69,5 +69,5 @@ def astar_path(mylist, visited):
 		path.append(parent)
 		last = parent
 
-	return path[::-1], visited
+	return path[::-1]
 

@@ -25,7 +25,7 @@ def bfs(mylist, start_node):
 
 				if mylist[next_node[0]][next_node[1]] == ".":
 
-					return bfs_path(visited)
+					return bfs_path(visited), visited
 
 				else:
 
@@ -49,4 +49,4 @@ def bfs_path(visited):
 			path.append(i[1])
 			last_parent = i[1]
 
-	return path[::-1], visited
+	return path[::-1]

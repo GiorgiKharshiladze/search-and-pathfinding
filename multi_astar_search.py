@@ -5,7 +5,7 @@ from heapq import *
 pq = []
 visited = {}
 
-def multi_astar(mylist, start_node):
+def m_astar(mylist, start_node):
 	cheese_amount = len(find_all_cheeses(mylist))
 	cheese_list = find_all_cheeses(mylist)
 	full_path = []
@@ -43,12 +43,12 @@ def multi_astar(mylist, start_node):
 					if len(full_path) != 0:
 						start_node = full_path[-1]
 
-					full_path = full_path + multi_astar_path(mylist, visited, start_node, next_node)
+					full_path = full_path + list(multi_astar_path(mylist, visited, start_node, next_node))
 					cheese_list.remove(next_node)
 
 				heappush(pq, get_priority_tuple(cheese_list, mylist, next_node))
 
-	return full_path
+	return full_path, visited
 
 import math
 

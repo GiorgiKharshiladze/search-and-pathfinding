@@ -56,4 +56,4 @@ def gbfs_path(visited):
 			path.append(i[1])
 			last_parent = i[1]
 
-	return path[::-1]
+	return path[::-1], visited

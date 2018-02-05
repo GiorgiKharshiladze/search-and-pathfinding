@@ -39,4 +39,4 @@ def dfs(mylist, start_node):
 
     _dfs(mylist, start_node)
 
-    return path
+    return path, visited

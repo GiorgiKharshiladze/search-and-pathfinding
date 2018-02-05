@@ -69,5 +69,5 @@ def astar_path(mylist, visited):
 		path.append(parent)
 		last = parent
 
-	return path[::-1]
+	return path[::-1], visited
 

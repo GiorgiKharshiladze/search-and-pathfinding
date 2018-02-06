@@ -9,29 +9,29 @@ from multi_astar_search import m_astar
 
 # filename = "lab-a/test.txt"
 # filename = "lab-a/1prize-large.txt"
-# filename = "lab-a/1prize-medium.txt"
+filename = "lab-a/1prize-medium.txt"
 # filename = "lab-a/1prize-open.txt"
-filename = "lab-a/multiprize-medium.txt"
+# filename = "lab-a/multiprize-medium.txt"
 # filename = "lab-a/multiprize-small.txt"
 # filename = "lab-a/multiprize-tiny.txt"
 
 
 
-def maze_data(filename):
+def maze_data():
 
 	my_list = read_maze(filename)
 
 	return my_list
 
-def mouse_path(filename):
+def mouse_path():
 
 	my_list = read_maze(filename)
 
 	start_position = find_mouse(my_list)
 
-	my_path = list(multi_astar(my_list, start_position))
+	my_path = list(astar(my_list, start_position))
 
-	return [list(elem) for elem in my_path]
+	return [list(elem) for elem in my_path[0]]
 
 def display_result_multi(my_list, final_path):
 
@@ -137,5 +137,6 @@ def multi_astar(filename):
 
 if __name__ == '__main__':
 
-	print(multi_astar(filename))
+	# print(multi_astar(filename))
+	print(mouse_path())
 

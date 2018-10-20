@@ -14,3 +14,4 @@ To view GUI for this project, you run this command and go to http://localhost:80
 
 `python3 server.py`
 
+![search-and-pathfinding](/static/img/game.png)
